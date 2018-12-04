@@ -1,0 +1,51 @@
+@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wedding Planner</title>
+</head>
+<body>
+    <div>
+        <h1>Sign Up</h1>
+        <h3>or <a href="/Login">Login</a></h3>
+    </div>
+    <div>
+        @model User
+        <form asp-action="CreateUser" method="POST">
+            <table>
+                <tr>
+                    <td>First Name</td>
+                    <td><input asp-for="FirstName"></td>
+                    <td><span style="color: red;" asp-validation-for="FirstName"></span></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input asp-for="LastName"></td>
+                    <td><span style="color: red;" asp-validation-for="LastName"></span></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input asp-for="Email"></td>
+                    <td><span style="color: red;" asp-validation-for="Email"></span></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input asp-for="Password"></td>
+                    <td><span style="color: red;" asp-validation-for="Password"></span></td>
+                </tr>
+                    <td>Confirm Password</td>
+                    <td><input asp-for="Confirm"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

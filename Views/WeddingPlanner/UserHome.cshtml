@@ -1,0 +1,58 @@
+@model IEnumerable<WeddingPlanner.Models.Guest>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wedding Planner</title>
+</head>
+<body>
+    <div>
+        <h1>User Home</h1>
+        <div>
+            <p><a href="/Logout">Logout</a></p>
+            <p><a href="/Wedding">Show Weddings</a></p>
+        </div>
+        <div>
+            @if(@ViewBag.WeddingName != null){
+                <a asp-action="WeddingShowOne" asp-route-WedId=@ViewBag.WeddingId>Check in on "@ViewBag.WeddingName"</a>
+            }
+            else{                
+                <p><a href="/Wedding/New">Need to Plan a Wedding?</a></p>
+            }
+        </div>
+        <div>
+            <Table>
+                <tr>
+                    <th>Wedding</th>
+                    <th>Reserve?</th>
+                </tr>
+                @foreach(var invite in @Model)
+                {
+                    <td>@invite.ThisWedding.WeddingName</td>
+
+                    @if(invite.ReceivedInvite == false)
+                    {
+                        <td>
+                            <a asp-action="UpdateRSVP" asp-route-GId=@invite.GuestId asp-route-status="true"><button>Accept</button></a>
+                            <a asp-action="UpdateRSVP" asp-route-GId=@invite.GuestId asp-route-status="false"><button>Decline</button></a>
+                        </td>
+                    }
+                    else
+                    {
+                        if(invite.HasRSVP == true)
+                        {
+                            <td>Accepted</td>
+                        }
+                        else
+                        {
+                            <td>Declined</td>
+                        }
+                    }
+                }
+            </Table>
+        </div>
+    </div>
+</body>
+</html>

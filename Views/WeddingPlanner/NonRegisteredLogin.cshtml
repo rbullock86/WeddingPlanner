@@ -1,0 +1,42 @@
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Mvc
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wedding Planner</title>
+</head>
+<body>
+    <div>
+        <h1>Login</h1>
+        <p>Sorry, but our database indicates that the email that you have supplied
+            is associated with either a wedding or a guest list.  
+            Check email for password (12345678);
+        </p>
+        <h3> or <a href="/Register">Register</a></h3>
+    </div>
+    <div>
+        @model User
+        <form asp-controller="WeddingPlanner" asp-action="UpdateUser" method="POST" asp-route-UId=@ViewBag.UId>
+            <input type="hidden" asp-for="FirstName" value=@ViewBag.FirstName>
+            <input type="hidden" asp-for="LastName" value=@ViewBag.LastName>
+            <table>
+                <tr>
+                    <td>Email</td>
+                    <td><input asp-for="Email" value=@ViewBag.Email placeholder=@ViewBag.Email></td>
+                    <td><span style="color: red;" asp-validation-for="Email"></span></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input asp-for="Password"></td>
+                    <td><span style="color: red;" asp-validation-for="Password"></span></td>
+                </tr>
+                <tr><td><button type="submit">Submit</button></td></tr>
+            </table>
+        </form>
+
+    </div>
+</body>
+</html>

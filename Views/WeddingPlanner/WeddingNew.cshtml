@@ -1,0 +1,68 @@
+@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wedding Planner</title>
+</head>
+<body>
+    <div>
+        <h1>New Wedding Form</h1>
+        <div>
+            @model Wedding
+            <form asp-action="WeddingCreate" method="POST">
+                <input type="hidden" asp-for="WedderOneEmail" value=@ViewBag.UserEmail>
+                <input type="hidden" asp-for="WedderOneId" value=@ViewBag.UserId>
+                <table>
+                    <tr>
+                        <td>Wedding Name</td>
+                        <td><input asp-for="WeddingName"></td>
+                        <td><span style="color: red;" asp-validation-for="WeddingName"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Partner's Email</td>
+                        <td><input asp-for="WedderTwoEmail"></td>
+                        <td><span style="color: red;" asp-validation-for="WedderTwoEmail"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td><input asp-for="Date"></td>
+                        <td><span style="color: red;" asp-validation-for="Date"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td><input asp-for="Location"></td>
+                        <td><span style="color: red;" asp-validation-for="Location"></span></td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td><input asp-for="City"></td>
+                        <td><span style="color: red;" asp-validation-for="City"></span></td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td><input asp-for="State"></td>
+                        <td><span style="color: red;" asp-validation-for="State"></span></td>
+                    </tr>
+                    <tr>
+                        <td>(Optional)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Google PlaceId</td>
+                        <td><input asp-for="GooglePlaceId"></td>
+                        <td><span style="color: red;" asp-validation-for="GooglePlaceId"></span></td>
+                    </tr>
+                </table>
+                <p>Invitation Message</p>
+                <p><span style="color: red;" asp-validation-for="InviteMessage"></span></p>
+                <textarea asp-for="InviteMessage" id="" cols="30" rows="10"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
