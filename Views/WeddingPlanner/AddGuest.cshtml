@@ -1,4 +1,4 @@
-<div id="AddGuest">
+<div class="text-center container">
   <h1>Add Guest</h1>
   @model Guest
   <form
@@ -10,7 +10,7 @@
     <input type="hidden" asp-for="ReceivedInvite" value="false" />
     <input type="hidden" asp-for="HasRSVP" value="false" />
     <p><span style="color: red;">@ViewBag.AddGuestError</span></p>
-    <table class="table">
+    <table class="table table-light">
       <tr>
         <td>First Name(Optional)</td>
         <td><input asp-for="FirstName" /></td>
@@ -24,7 +24,8 @@
         <td><input asp-for="Email" /></td>
       </tr>
       <tr>
-        <td><button type="submit">Add</button></td>
+        <td></td>
+        <td><button class="btn btn-primary" type="submit">Add</button></td>
       </tr>
     </table>
   </form>

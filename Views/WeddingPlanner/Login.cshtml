@@ -1,35 +1,39 @@
-@using Microsoft.AspNetCore.Http
-<!DOCTYPE html>
+@using Microsoft.AspNetCore.Http <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Wedding Planner</title>
-</head>
-<body>
+  </head>
+  <body>
     <div>
-        <h1>Login</h1>
-        <h3> or <a href="/Register">Register</a></h3>
+      <h1>Login</h1>
+      <h3>or <a href="/Register">Register</a></h3>
     </div>
     <div>
-        @model UserLogin
-        <form asp-action="ProcessLogin" method="POST">
-            <table>
-                <tr>
-                    <td>Email</td>
-                    <td><input asp-for="Email"></td>
-                    <td><span style="color: red;" asp-validation-for="Email"></span></td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td><input asp-for="Password"></td>
-                    <td><span style="color: red;" asp-validation-for="Password"></span></td>
-                </tr>
-                <tr><td><button type="submit">Submit</button></td></tr>
-            </table>
-        </form>
-
+      @model UserLogin
+      <form asp-action="ProcessLogin" method="POST">
+        <table>
+          <tr>
+            <td>Email</td>
+            <td><input asp-for="Email" /></td>
+            <td>
+              <span style="color: red;" asp-validation-for="Email"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td><input asp-for="Password" /></td>
+            <td>
+              <span style="color: red;" asp-validation-for="Password"></span>
+            </td>
+          </tr>
+          <tr>
+            <td><button type="submit">Submit</button></td>
+          </tr>
+        </table>
+      </form>
     </div>
-</body>
+  </body>
 </html>

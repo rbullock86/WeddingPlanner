@@ -1,25 +1,38 @@
-<div>
-  <h3>Guests</h3>
-  <table class="table">
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>RSVP Status</th>
-    </tr>
-    @foreach(var guest in @ViewBag.GuestsOfWedding) {
-    <tr>
+<div class="container">
+  <h3 class="text-center">Guests</h3>
+  <table class="table table-light">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">RSVP Status</th>
+      </tr>
+    </thead>
+    @foreach(var guest in @ViewBag.GuestsOfWedding) { @if(@guest.HasRSVP ==
+    true){
+    <tr class="table-success">
       <td>@guest.FirstName</td>
       <td>@guest.LastName</td>
       <td>@guest.Email</td>
-      @if(@guest.HasRSVP == true) {
-      <td style="color: green;">Reserved</td>
-      } else if(@guest.ReceivedInvite == false) {
-      <td>Unknown</td>
-      } else {
-      <td style="color: red;">Declined</td>
-      }
+      <td>Reserved</td>
     </tr>
-    }
+
+    } else if(@guest.ReceivedInvite == false) {
+    <tr class="table-warning">
+      <td>@guest.FirstName</td>
+      <td>@guest.LastName</td>
+      <td>@guest.Email</td>
+      <td>Unknown</td>
+    </tr>
+    } else {
+    <tr class="table-danger">
+      <td>@guest.FirstName</td>
+      <td>@guest.LastName</td>
+      <td>@guest.Email</td>
+      <td>Declined</td>
+    </tr>
+
+    }}
   </table>
 </div>
