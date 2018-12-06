@@ -35,7 +35,7 @@ namespace WeddingPlanner.Models
         public string Confirm { get; set; }
 
         [Required]
-        public bool HasRegistered {get; set; }
+        public bool HasRegistered { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
@@ -45,6 +45,6 @@ namespace WeddingPlanner.Models
 
         [NotMapped]
         public List<Wedding> MyWedding { get; set; }
-        
+
     }
 }

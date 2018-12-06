@@ -1,28 +1,31 @@
 <div id="AddGuest">
-    <h1>Add Guest</h1>
-    @model Guest
-    <form asp-action="AddGuest" asp-route-WedId=@ViewBag.WeddingId method="POST">
-        <input type="hidden" asp-for="WeddingId" value=@ViewBag.WeddingId>
-        <input type="hidden" asp-for="ReceivedInvite" value="false">
-        <input type="hidden" asp-for="HasRSVP" value="false">
-        <p><span style="color: red;">@ViewBag.AddGuestError</span></p>
-        <table>
-            <tr>
-                <td>First Name(Optional)</td>
-                <td><input asp-for="FirstName"></td>
-            </tr>
-            <tr>
-                <td>Last Name(Optional)</td>
-                <td><input asp-for="LastName"></td>
-            </tr>
-            <tr>
-                <td>Guest Email</td>
-                <td><input asp-for="Email"></td>
-            </tr>
-            <tr>
-                <td><button type="submit">Add</button></td>
-            </tr>
-        </table>
-    </form>
-
+  <h1>Add Guest</h1>
+  @model Guest
+  <form
+    asp-action="AddGuest"
+    asp-route-WedId="@ViewBag.WeddingId"
+    method="POST"
+  >
+    <input type="hidden" asp-for="WeddingId" value="@ViewBag.WeddingId" />
+    <input type="hidden" asp-for="ReceivedInvite" value="false" />
+    <input type="hidden" asp-for="HasRSVP" value="false" />
+    <p><span style="color: red;">@ViewBag.AddGuestError</span></p>
+    <table class="table">
+      <tr>
+        <td>First Name(Optional)</td>
+        <td><input asp-for="FirstName" /></td>
+      </tr>
+      <tr>
+        <td>Last Name(Optional)</td>
+        <td><input asp-for="LastName" /></td>
+      </tr>
+      <tr>
+        <td>Guest Email</td>
+        <td><input asp-for="Email" /></td>
+      </tr>
+      <tr>
+        <td><button type="submit">Add</button></td>
+      </tr>
+    </table>
+  </form>
 </div>
